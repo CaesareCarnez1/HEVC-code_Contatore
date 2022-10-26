@@ -2150,6 +2150,10 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                                 for (int x = xStart; x < xEnd; x++)
                                     uhInfoBest[iCpnt][y*iWidth + x] = uhInfoNoF[iCpnt][y*iWidth + x];
                             printf(" 0");
+                            //added//
+                            if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
+                            printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
+                            }
                         }
                         else if(ullSquaredErrorILF <= ullSquaredErrorCNN)
                         {
@@ -2157,6 +2161,10 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                                 for (int x = xStart; x < xEnd; x++)
                                     uhInfoBest[iCpnt][y*iWidth + x] = uhInfoILF[iCpnt][y*iWidth + x];
                             printf(" 1");
+                            //added// 
+                            if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
+                            printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
+                       	    }
                         }
                         else 
                         {
@@ -2164,6 +2172,12 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                                 for (int x = xStart; x < xEnd; x++)
                                     uhInfoBest[iCpnt][y*iWidth + x] = uhInfoCNN[iCpnt][y*iWidth + x];
                             printf(" 2");
+                             //added//
+                            localBlockCount ++;
+                            BlockCount ++;
+                            if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
+                            printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
+                            }
                         }
                     }
                     printf("\n");
