@@ -2077,6 +2077,8 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
 			
             if (iBlockWidth[iCpnt] == 0) // frame-level flag
             {
+            	//added//     
+		printf("\n Eseguo sezione FRAME-LEVEL\n\n");
                 ullSquaredErrorNoF = 0;
                 ullSquaredErrorILF = 0;
                 ullSquaredErrorCNN = 0;
@@ -2112,6 +2114,9 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
             }
             else // block-level mode selection
             {
+            	//added//     
+		printf("\n Eseguo sezione BLOCK-LEVEL\n\n");
+                int localBlockCount = 0;
                 Int iWidthInBlocks = iWidth % iBlockWidth[iCpnt] == 0 ? iWidth / iBlockWidth[iCpnt] : iWidth / iBlockWidth[iCpnt] + 1;
                 Int iHeightInBlocks = iHeight % iBlockWidth[iCpnt] == 0 ? iHeight / iBlockWidth[iCpnt] : iHeight / iBlockWidth[iCpnt] + 1;
                 printf("Component %d: Flag = \n", iCpnt);
