@@ -2061,7 +2061,12 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
             uhInfoBest[iCpnt] = uhInfoCNN[iCpnt];
 
     printf("No filter: %.4f, ILF: %.4f, CNN: %.4f,     mode = %d\n", fPSNRNoF, fPSNRILF, fPSNRCNN, enhanceMode);
-    
+    //added//
+    if(enhanceMode == 2) 
+    {
+    	CNNEnCount ++; // mod //
+    	printf("\nCNN mode counter %d\n", CNNEnCount); // mod //
+    }
     if(bUseCNN && iBlockWidth[0] >= 0)
     {
         for (int iCpnt = 0; iCpnt < MAX_NUM_COMPONENT; iCpnt++)
