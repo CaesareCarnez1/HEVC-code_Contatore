@@ -2064,9 +2064,9 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
     //added//
     if(enhanceMode == 2) 
     {
-    	CNNEnCount ++; // mod //
-    	printf("\nCNN mode counter %d\n", CNNEnCount); // mod //
-    }
+    	CNNEnCount ++; 
+    	printf("\nCNN mode counter %d\n", CNNEnCount); 
+    } //end//
     if(bUseCNN && iBlockWidth[0] >= 0)
     {
         for (int iCpnt = 0; iCpnt < MAX_NUM_COMPONENT; iCpnt++)
@@ -2078,7 +2078,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
             if (iBlockWidth[iCpnt] == 0) // frame-level flag
             {
             	//added//     
-		printf("\n Eseguo sezione FRAME-LEVEL\n\n");
+		printf("\n Eseguo sezione FRAME-LEVEL\n\n"); //end//
                 ullSquaredErrorNoF = 0;
                 ullSquaredErrorILF = 0;
                 ullSquaredErrorCNN = 0;
@@ -2116,7 +2116,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
             {
             	//added//     
 		printf("\n Eseguo sezione BLOCK-LEVEL\n\n");
-                int localBlockCount = 0;
+                int localBlockCount = 0; //end//
                 Int iWidthInBlocks = iWidth % iBlockWidth[iCpnt] == 0 ? iWidth / iBlockWidth[iCpnt] : iWidth / iBlockWidth[iCpnt] + 1;
                 Int iHeightInBlocks = iHeight % iBlockWidth[iCpnt] == 0 ? iHeight / iBlockWidth[iCpnt] : iHeight / iBlockWidth[iCpnt] + 1;
                 printf("Component %d: Flag = \n", iCpnt);
@@ -2153,7 +2153,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                             //added//
                             if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
                             printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
-                            }
+                            } //end//
                         }
                         else if(ullSquaredErrorILF <= ullSquaredErrorCNN)
                         {
@@ -2164,7 +2164,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                             //added// 
                             if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
                             printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
-                       	    }
+                       	    } //end//
                         }
                         else 
                         {
@@ -2177,7 +2177,7 @@ Void TEncGOP::compressGOP( Int iPOCLast, Int iNumPicRcvd, TComList<TComPic*>& rc
                             BlockCount ++;
                             if(yBlock == iHeightInBlocks -1 and xBlock == iWidthInBlocks -1)          {
                             printf("\n\nBlocchi presi da CNN: %d\n", localBlockCount);
-                            }
+                            } //end//
                         }
                     }
                     printf("\n");
@@ -2509,7 +2509,7 @@ Void TEncGOP::printOutSummary(UInt uiNumAllPicCoded, Bool isField, const Bool pr
   //added//
   printf( "\n\n CNN mode counter: %d\n", CNNEnCount);
   printf( "\n %d blocchi presi da CNN \n\n", BlockCount);
-  
+  //end//
   if (!m_pcCfg->getSummaryOutFilename().empty())
   {
     m_gcAnalyzeAll.printSummary(chFmt, printSequenceMSE, bitDepths, m_pcCfg->getSummaryOutFilename());
