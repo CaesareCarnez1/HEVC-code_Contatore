@@ -2522,8 +2522,8 @@ Void TEncGOP::printOutSummary(UInt uiNumAllPicCoded, Bool isField, const Bool pr
   printf( "\n\nB Slices--------------------------------------------------------\n" );
   m_gcAnalyzeB.printOut('b', chFmt, printMSEBasedSNR, printSequenceMSE, bitDepths);
   //added//
-  printf( "\n\n CNN mode counter: %d\n", CNNEnCount);
-  printf( "\n %d blocchi totali presi da CNN \nDi cui:\n", BlockCount);
+  printf( "\n\n CNN mode frames counter: %d\n", CNNEnCount);
+  printf( "\nBlocchi totali presi da CNN: %d \nDi cui:\n", BlockCount);
   printf( "%d blocchi nella componente 0\n", Comp0Count);
   printf( "%d blocchi nella componente 1\n", Comp1Count);
   printf( "%d blocchi nella componente 2\n", Comp2Count);
